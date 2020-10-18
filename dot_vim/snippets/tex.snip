@@ -1,0 +1,713 @@
+# vim: foldmethod=marker
+# vim: foldcolumn=3
+# vim: foldlevelstart=0
+
+#:s/^.*$/snippet     ;zabbr        &options     word    \\&/g
+# {{{1 LaTeX2e
+
+snippet     \begin
+abbr        環境
+options     head
+    \begin{${1:#:type}}${2}
+        ${0:TARGET}
+    \end{$1}
+
+snippet     abstract
+abbr        abstract環境
+options     head
+    \begin{abstract}
+        ${0:TARGET}
+    \end{abstract}
+
+snippet     array
+abbr        array環境
+options     head
+    \begin{array}{${1:#:template}}
+        ${0:TARGET}
+    \end{array}
+
+snippet     center
+abbr        center環境
+options     head
+    \begin{center}
+        ${0:TARGET}
+    \end{center}
+
+snippet     description
+abbr        description環境
+options     head
+    \begin{description}
+        \item ${0:TARGET}
+    \end{description}
+
+snippet     displaymath
+abbr        displaymath環境
+options     head
+    \begin{displaymath}
+        ${0:TARGET}
+    \end{displaymath}
+
+snippet     document
+abbr        document環境
+options     head
+    \begin{document}
+    ${0:TARGET}
+    \end{document}
+
+snippet     enumerate
+abbr        enumerate環境
+options     head
+    \begin{enumerate}
+        \item ${0:TARGET}
+    \end{enumerate}
+
+snippet     eqnarray
+abbr        eqnarray環境
+options     head
+    \begin{eqnarray}
+        ${0:TARGET}
+    \end{eqnarray}
+
+snippet     eqnarray*
+abbr        eqnarray*環境
+options     head
+    \begin{eqnarray*}
+        ${0:TARGET}
+    \end{eqnarray*}
+
+snippet     equation
+abbr        equation環境
+options     head
+    \begin{equation}
+        ${0:TARGET}
+    \end{equation}
+
+snippet     figure
+abbr        figure環境
+options     head
+    \begin{figure}${1:#:[placement]}
+        \label{${2:label}}
+        \caption${3:#:[loftitle]}{${4:#:text}}
+        ${0:TARGET}
+    \end{figure}
+
+snippet     filecontents
+abbr        filecontents環境
+options     head
+    \begin{filecontents}{${1:#:filename}}
+        ${0:TARGET}
+    \end{filecontents}
+
+snippet     flushleft
+abbr        flushleft環境
+options     head
+    \begin{flushleft}
+        ${0:TARGET}
+    \end{flushleft}
+
+snippet     flushright
+abbr        flushright環境
+options     head
+    \begin{flushright}
+        ${0:TARGET}
+    \end{flushright}
+
+snippet     itemize
+abbr        itemize環境
+options     head
+    \begin{itemize}
+        \item ${0:TARGET}
+    \end{itemize}
+
+snippet     letter
+abbr        letter環境
+options     head
+    \begin{letter}{${1:#:name-and-address}}
+        ${0:TARGET}
+    \end{letter}
+
+snippet     list
+abbr        list環境
+options     head
+    \begin{list}{${1:#:labeling}}{${2:#:spacing}}
+        \item ${0:TARGET}
+    \end{list}
+
+snippet     math
+abbr        math環境
+options     head
+    \begin{math}
+        ${0:TARGET}
+    \end{math}
+
+snippet     minipage
+abbr        minipage環境
+options     head
+    \begin{minipage}${1:#:[position]}${2:#:[height]}${3:#:[inner-pos]}{${4:#:width}}
+        ${0:TARGET}
+    \end{minipage}
+
+snippet     picture
+abbr        picture環境
+options     head
+    \begin{picture}(${1:#:width,height})${2:#:(x offset,y offset)}
+        ${0:TARGET}
+    \end{picture}
+
+snippet     quotation
+abbr        quotation環境
+options     head
+    \begin{quotation}
+        ${0:TARGET}
+    \end{quotation}
+
+snippet     quote
+abbr        quote環境
+options     head
+    \begin{quote}
+        ${0:TARGET}
+    \end{quote}
+
+snippet     tabbing
+abbr        tabbing環境
+options     head
+    \begin{tabbing}
+        ${0:TARGET}
+    \end{tabbing}
+
+snippet     table
+abbr        table環境
+options     head
+    \begin{table}${1:#:[placement]}
+        \caption{${2:#:table-title}}
+        ${0:TARGET}
+    \end{table}
+
+snippet     tabular
+abbr        tabular環境
+options     head
+    \begin{tabular}${1:#:[pos]}{${2:#:cols}}
+        ${0:TARGET}
+    \end{tabular}
+
+snippet     tabular*
+abbr        tabular*環境
+options     head
+    \begin{tabular*}{${1:#:width}}${2:#:[pos]}{${3:#:cols}}
+        ${0:TARGET}
+    \end{tabular*}
+
+snippet     thebibliography
+abbr        thebibliography環境
+options     head
+    \begin{thebibliography}{${1:#:widest-label}}
+        \bibitem${0}
+    \end{thebibliography}
+
+snippet     theorem
+abbr        theorem環境
+options     head
+    \begin{theorem}
+        ${0:TARGET}
+    \end{theorem}
+
+snippet     titlepage
+abbr        titlepage環境
+options     head
+    \begin{titlepage}
+        ${0:TARGET}
+    \end{titlepage}
+
+snippet     verbatim
+abbr        verbatim環境
+options     head
+    \begin{verbatim}
+        ${0:TARGET}
+    \end{verbatim}
+
+snippet     verse
+abbr        verse環境
+options     head
+    \begin{verse}
+        ${0:TARGET}
+    \end{verse}
+
+# {{{1 amsmath
+
+snippet     align
+abbr        align環境(amsmath)
+options     head
+    \begin{align}
+        ${0:TARGET}
+    \end{align}
+
+snippet     align*
+abbr        align*環境(amsmath)
+options     head
+    \begin{align*}
+        ${0:TARGET}
+    \end{align*}
+
+snippet     alignat
+abbr        alignat環境(amsmath)
+options     head
+    \begin{alignat}{${1:#:number-of-columns}}
+        ${0:TARGET}
+    \end{alignat}
+
+snippet     alignat*
+abbr        alignat*環境(amsmath)
+options     head
+    \begin{alignat*}{${1:#:number-of-columns}}
+        ${0:TARGET}
+    \end{alignat*}
+
+snippet     aligned
+abbr        aligned環境(amsmath)
+options     word
+    \begin{aligned}
+        ${0:TARGET}
+    \end{aligned}
+
+snippet     alignedat
+abbr        alignedat環境(amsmath)
+options     word
+    \begin{alignedat}{${1:#:number-of-columns}}
+        ${0:TARGET}
+    \end{alignedat}
+
+snippet     bmatrix
+abbr        bmatrix環境(amsmath)
+options     word
+    \begin{bmatrix}
+        ${0:TARGET}
+    \end{bmatrix}
+
+snippet     Bmatrix
+abbr        Bmatrix環境(amsmath)
+options     word
+    \begin{Bmatrix}
+        ${0:TARGET}
+    \end{Bmatrix}
+
+snippet     cases
+abbr        cases環境(amsmath)
+options     word
+    \begin{cases}
+        ${0:TARGET}
+    \end{cases}
+
+snippet     equation*
+abbr        equation*環境(amsmath)
+options     head
+    \begin{equation*}
+        ${0:TARGET}
+    \end{equation*}
+
+snippet     flalign
+abbr        flalign環境(amsmath)
+options     head
+    \begin{flalign}
+        ${0:TARGET}
+    \end{flalign}
+
+snippet     flalign*
+abbr        flalign*環境(amsmath)
+options     head
+    \begin{flalign*}
+        ${0:TARGET}
+    \end{flalign*}
+
+snippet     gather
+abbr        gather環境(amsmath)
+options     head
+    \begin{gather}
+        ${0:TARGET}
+    \end{gather}
+
+snippet     gather*
+abbr        gather*環境(amsmath)
+options     head
+    \begin{gather*}
+        ${0:TARGET}
+    \end{gather*}
+
+snippet     gathered
+abbr        gathered環境(amsmath)
+options     word
+    \begin{gathered}
+        ${0:TARGET}
+    \end{gathered}
+
+snippet     matrix
+abbr        matrix環境(amsmath)
+options     word
+    \begin{matrix}
+        ${0:TARGET}
+    \end{matrix}
+
+snippet     multline
+abbr        multline環境(amsmath)
+options     head
+    \begin{multline}
+        ${0:TARGET}
+    \end{multline}
+
+snippet     multline*
+abbr        multline*環境(amsmath)
+options     head
+    \begin{multline*}
+        ${0:TARGET}
+    \end{multline*}
+
+snippet     pmatrix
+abbr        pmatrix環境(amsmath)
+options     word
+    \begin{pmatrix}
+        ${0:TARGET}
+    \end{pmatrix}
+
+snippet     smallmatrix
+abbr        smallmatrix環境(amsmath)
+options     word
+    \begin{smallmatrix}
+        ${0:TARGET}
+    \end{smallmatrix}
+
+snippet     split
+abbr        split環境(amsmath)
+options     word
+    \begin{split}
+        ${0:TARGET}
+    \end{split}
+
+snippet     subarray
+abbr        subarray環境(amsmath)
+options     word
+    \begin{subarray}{${1:#:alignment}}
+        ${0:TARGET}
+    \end{subarray}
+
+snippet     subequations
+abbr        subequations環境(amsmath)
+options     head
+    \begin{subequations}
+        ${0:TARGET}
+    \end{subequations}
+
+snippet     vmatrix
+abbr        vmatrix環境(amsmath)
+options     word
+    \begin{vmatrix}
+        ${0:TARGET}
+    \end{vmatrix}
+
+snippet     Vmatrix
+abbr        Vmatrix環境(amsmath)
+options     word
+    \begin{Vmatrix}
+        ${0:TARGET}
+    \end{Vmatrix}
+
+# {{{1 amscd
+
+snippet     CD
+abbr        CD環境(amscd)
+options     head
+    \begin{CD}
+        ${0:TARGET}
+    \end{CD}
+
+# {{{1 amsthm
+
+snippet     proof
+abbr        proof環境(amsthm)
+options     head
+    \begin{proof}${1:#:[heading]}
+        ${0:TARGET}
+    \end{proof}
+
+# {{{1 beamer
+
+snippet     frame
+abbr        frame環境(beamer)
+options     head
+    \begin{frame}{${1:#:frametitle}}
+        ${0:TARGET}
+    \end{frame}
+
+snippet     block
+abbr        block環境(beamer)
+options     head
+    \begin{block}{${1:#:blocktitle}}
+        ${0:TARGET}
+    \end{block}
+
+snippet     alertblock
+abbr        alertblock環境(beamer)
+options     head
+    \begin{alertblock}{${1:#:blocktitle}}
+        ${0:TARGET}
+    \end{alertblock}
+
+snippet     columns
+abbr        columns環境(beamer)
+options     head
+    \begin{columns}[${1:#:placement}]
+        ${0:TARGET}
+    \end{columns}
+
+snippet     column
+abbr        column環境(beamer)
+options     head
+    \begin{column}{${1:#:size}}
+        ${0:TARGET}
+    \end{column}
+
+# {{{1 generic
+snippet     seq
+abbr        sequential number
+    ${1:1}${2: }${3:2}$2\dots$2${4:n}${0}
+
+snippet     seq1
+abbr        sequential number 1 to n
+    1${1: }2$1\dots$1${2:n}${0}
+
+snippet     seqf
+abbr        sequential function
+    ${1:func}(${2:1})${3: }$1(${4:2})$3\dots$3$1(${5:n})${0}
+
+snippet     seqf1
+abbr        sequential function 1 to n
+    ${1:func}(1)${3: }$1(2)$3\dots$3$1(${4:n})${0}
+
+snippet     seqn
+abbr        numeric sequence
+    ${1:seq}_{${2:1}}${3: }$1_{${4:2}}$3\dots$3$1_{${5:n}}${0}
+
+snippet     seqn1
+abbr        numeric sequence
+    ${1:seq}_{1}${2: }$1_{2}$2\dots$2$1_{${3:n}}${0}
+
+# {{{1 Greek alphabet
+snippet     ;a
+abbr        alpha
+options     word
+    \alpha
+
+snippet     ;b
+abbr        beta
+options     word
+    \beta
+
+snippet     ;g
+abbr        gamma
+options     word
+    \gamma
+
+snippet     ;d
+abbr        delta
+options     word
+    \delta
+
+snippet     ;e
+abbr        epsilon
+options     word
+    \epsilon
+
+snippet     ;ve
+abbr        varepsilon
+options     word
+    \varepsilon
+
+snippet     ;z
+abbr        zeta
+options     word
+    \zeta
+
+snippet     ;h
+abbr        eta
+options     word
+    \eta
+
+snippet     ;th
+abbr        theta
+options     word
+    \theta
+
+snippet     ;vth
+abbr        vartheta
+options     word
+    \vartheta
+
+snippet     ;i
+abbr        iota
+options     word
+    \iota
+
+snippet     ;k
+abbr        kappa
+options     word
+    \kappa
+
+snippet     ;l
+abbr        lambda
+options     word
+    \lambda
+
+snippet     ;m
+abbr        mu
+options     word
+    \mu
+
+snippet     ;n
+abbr        nu
+options     word
+    \nu
+
+snippet     ;ks
+abbr        xi
+options     word
+    \xi
+
+snippet     ;p
+abbr        pi
+options     word
+    \pi
+
+snippet     ;vp
+abbr        varpi
+options     word
+    \varpi
+
+snippet     ;r
+abbr        rho
+options     word
+    \rho
+
+snippet     ;vr
+abbr        varrho
+options     word
+    \varrho
+
+snippet     ;s
+abbr        sigma
+options     word
+    \sigma
+
+snippet     ;vs
+abbr        varsigma
+options     word
+    \varsigma
+
+snippet     ;t
+abbr        tau
+options     word
+    \tau
+
+snippet     ;u
+abbr        upsilon
+options     word
+    \upsilon
+
+snippet     ;ph
+abbr        phi
+options     word
+    \phi
+
+snippet     ;vph
+abbr        varphi
+options     word
+    \varphi
+
+snippet     ;c
+abbr        chi
+options     word
+    \chi
+
+snippet     ;ps
+abbr        psi
+options     word
+    \psi
+
+snippet     ;o
+abbr        omega
+options     word
+    \omega
+
+snippet     :g
+abbr        Gamma
+options     word
+    \Gamma
+
+snippet     :d
+abbr        Delta
+options     word
+    \Delta
+
+snippet     :t
+abbr        Theta
+options     word
+    \Theta
+
+snippet     :l
+abbr        Lambda
+options     word
+    \Lambda
+
+snippet     :x
+abbr        Xi
+options     word
+    \Xi
+
+snippet     :p
+abbr        Pi
+options     word
+    \Pi
+
+snippet     :s
+abbr        Sigma
+options     word
+    \Sigma
+
+snippet     :u
+abbr        Upsilon
+options     word
+    \Upsilon
+
+snippet     :ph
+abbr        Phi
+options     word
+    \Phi
+
+snippet     :o
+abbr        Omega
+options     word
+    \Omega
+
+# {{{1 latex
+snippet     platex
+abbr        platex documentclass
+options     head
+    documentclass[dvipdfmx]{jsarticle}
+
+snippet     uplatex
+abbr        uplatex documentclass
+options     head
+    documentclass[uplatex,dvipdfmx]{jsarticle}
+
+snippet     bxjsarticle
+abbr        documentclass bxjsarticle
+options     head
+    documentclass[autodetect-engine,dvipdfmx-if-dvi,ja=standard]{bxjsarticle}
+
+snippet     puplatex
+abbr        platex and uplatex
+options     head
+    \RequirePackage{ifuptex}
+    \ifupTeX
+    \documentclass[uplatex,dvipdfmx]{jsarticle}
+    \else
+    \documentclass[dvipdfmx]{jsarticle}
+    \fi
+

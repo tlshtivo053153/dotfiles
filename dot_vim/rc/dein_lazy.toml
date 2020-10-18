@@ -1,0 +1,19 @@
+#[[plugins]]
+#repo = 'eagletmt/neco-ghc'
+#on_ft = 'haskell'
+
+#[[plugins]]
+#repo = 'eagletmt/ghcmod-vim'
+#on_ft = 'haskell'
+
+# [[plugins]]
+# repo = 'neovimhaskell/haskell-vim'
+# on_ft = 'haskell'
+
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = 'tex'
+
+[[plugins]]
+repo = 'ujihisa/ref-hoogle'
+on_ft = 'haskell'

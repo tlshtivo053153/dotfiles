@@ -1,0 +1,99 @@
+snippet             import
+abbr                import qualified ... as ...
+	import qualified ${1} as ${2}
+
+# snippet             importOnly
+# abbr                import ... (...)
+# 	import ${1} (${2})
+
+snippet             language
+abbr                {-# LANGUAGE ... #-}
+	{-# LANGUAGE ${1} #-}
+
+# hard-tab is necessary
+snippet             case
+abbr                case ... of
+	case ${1} of
+		${2} -> ${0}
+
+snippet             main
+abbr                main = do
+	main :: IO ()
+	main = do
+		${0}
+
+#snippet            class
+#options            head
+#	class ${1:Class} ${2:a} where
+#		${3:function} :: ${4:Type}
+
+# snippet            instance
+# options            head
+#        instance ${1:Class} ${2:Type} where
+#            ${3:function} ${4:self} = ${0:TARGET}
+
+snippet            lambda
+abbr                λ
+	\ ${1:x} -> ${0}
+
+# === My snippet ===
+snippet     pragma
+abbr        {-# ... #-}
+options     head
+    {-# ${1} #-}
+
+snippet            instance
+options            head
+	instance ${1:ClassType} where
+		${0}
+
+snippet            class
+options            head
+	class ${1:Class} where
+		${2:function} :: ${3:Type}
+
+snippet             importOnly
+abbr                import ... (...)
+	import ${1} ( ${2} )
+
+snippet            helloworld
+abbr               hello world
+options            head
+	main :: IO ()
+	main = putStrLn "hello world"
+
+snippet            blambda
+abbr               (λ)
+	(\ ${1:x} -> ${2} ) ${0}
+
+snippet            set
+abbr               [ ... | ...]
+	[ ${1} | ${2} ]${0}
+
+snippet            sf
+abbr               single arg func :: a -> b
+	${1:func} (${2:a}) ${0}
+
+snippet            df
+abbr               double arg func :: a -> b -> c
+	${1:func} (${2:a}) (${3:b}) ${0}
+
+snippet            tf
+abbr               triple arg func :: a -> b -> c -> d
+	${1:func} (${2:a}) (${3:b}) (${4:c}) ${0}
+
+snippet            if
+abbr               if ... then ... else ...
+	if ${1} then ${2} else ${3}
+
+snippet            ifm
+abbr               if ... \n then ... \n else ...
+	if ${1}
+		then ${2}
+		else ${3}
+
+snippet            tuple
+abbr               (, )
+alias              tup
+	(${1}, ${2}) ${0}
+

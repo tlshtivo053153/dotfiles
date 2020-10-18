@@ -1,0 +1,259 @@
+# vim: foldmethod=marker
+# vim: foldcolumn=3
+# vim: foldlevelstart=0
+
+# {{{1 Headers
+snippet     section0
+abbr        Section0
+options     head
+    = ${0:TARGET}
+
+snippet     section1
+abbr        Section1
+options     head
+    == ${0:TARGET}
+
+snippet     section2
+abbr        Section2
+options     head
+    === ${0:TARGET}
+
+snippet     section3
+abbr        Section3
+options     head
+    ==== ${0:TARGET}
+
+snippet     section4
+abbr        Section4
+options     head
+    ===== ${0:TARGET}
+
+# {{{1 Text
+snippet     bold
+abbr        bold
+    *${1:#:text}* ${0:TARGET}
+
+snippet     italic
+abbr        italic
+    _${1:#:text}_ ${0:TARGET}
+
+snippet     monospace
+abbr        monospace
+    \`${1:#:text}\` ${0:TARGET}
+
+snippet     color
+abbr        color
+    [${1:#:color}]#${2:#:text}# ${0:TARGET}
+
+snippet     size
+abbr        size
+    [${1:#:size}]#${2:#:text}# ${0:TARGET}
+
+snippet     underline
+abbr        underline
+    [underline]#${1:#:text}# ${0:TARGET}
+
+snippet     linethrough
+abbr        line-through
+    [line-through]#${1:#:text}# ${0:TARGET}
+
+snippet     comment
+abbr        comment
+options     head
+    // ${0:TARGET}
+
+snippet     link
+abbr        link
+    link:${1:#:url}[${2:#:text}] ${0:TARGET}
+
+snippet     image
+abbr        image
+options     head
+    image:${1:#:path}[${2:#:text}] ${0:TARGET}
+
+snippet     paragraph
+abbr        paragraph
+options     head
+    .${1:#:text}
+    ${0:TARGET}
+
+snippet     source
+abbr        source
+options     head
+    [source${1:#:,lang}]
+    ${0:TARGET}
+
+snippet     note
+abbr        note
+options     head
+    [NOTE]
+    ${0:TARGET}
+
+snippet     tip
+abbr        tip
+options     head
+    TIP: ${1:#:tip}
+    ${0:TARGET}
+
+snippet     important
+abbr        important
+options     head
+    IMPORTANT: ${1:#:important}
+    ${0:TARGET}
+
+snippet     warning
+abbr        warning
+options     head
+    WARNING: ${1:#:warning}
+    ${0:TARGET}
+
+snippet     caution
+abbr        caution
+options     head
+    CAUTION: ${1:#:caution}
+    ${0:TARGET}
+
+snippet     super
+abbr        super script
+    ^${1:#:text}^ ${0:TARGET}
+
+snippet     sub
+abbr        sub script
+    ~${1:#:text}~ ${0:TARGET}
+
+snippet     doublequote
+abbr        double quote
+    \`\`\${1:#:text}'' ${0:TARGET}
+
+snippet     singlequote
+abbr        single quote
+    \`${1:#:text}' ${0:TARGET}
+
+
+# {{{1 Blocks
+snippet     block
+abbr        block
+options     head
+    ----
+    ${1:#:text}
+    ----
+    ${0:TARGET}
+
+snippet     sidebarblock
+abbr        sidebar block
+options     head
+    ****
+    ${1:#:text}
+    ****
+    ${0:TARGET}
+
+snippet     exampleblock
+abbr        example block
+options     head
+    ====================================================
+    ${1:#:text}
+    ====================================================
+    ${0:TARGET}
+
+snippet     noteblock
+abbr        note block
+options     head
+    [NOTE]
+    ====================================================
+    ${1:#:text}
+    ====================================================
+    ${0:TARGET}
+
+snippet     commentblock
+abbr        comment block
+options     head
+    ////
+    ${1:#:comment}
+    ////
+    ${0:TARGET}
+
+snippet     passthroughblock
+abbr        passthrough block
+options     head
+    ++++
+    ${1:#:markup}
+    ++++
+    ${0:TARGET}
+
+snippet     literalblock
+abbr        literal block
+options     head
+    ....
+    ${1:#:literal}
+    ....
+    ${0:TARGET}
+
+snippet     quoteblock
+abbr        quote block
+options     head
+    [quote, cite author, cite source]
+    ____
+    ${1:#:text}
+    ____
+    ${0:TARGET}
+
+snippet     imageblock
+abbr        image block
+options     head
+    image::${1:#:path}[${2:text}]
+    ${0:TARGET}
+
+
+# {{{1 Lists
+
+# {{{1 Tables
+
+snippet     table
+abbr        table
+options     head
+    [options="autowidth"]
+    |===
+    |${1:#:text}
+    |===
+    ${0:TARGET}
+
+
+# {{{1 Index
+
+snippet     index
+abbr        index
+    ((${1:#:index}))${0:TARGET}
+
+
+# {{{1 Anchor
+
+snippet     anchor
+abbr        anchor
+options     head
+    [[${1:#:anchor}]]${0:TARGET}
+
+snippet     ref
+abbr        ref
+    <<${1:#:ref}>>${0:TARGET}
+
+
+# {{{1 LaTeX
+
+snippet     latexmath
+abbr        latexmath
+options     head
+    latexmath:[${1:#:formula}] ${0:TARGET}
+
+snippet     equation
+abbr        latexmath equation
+options     head
+    latexmath:[\begin{equation*}${1:#:formula}\end{equation*}] ${0:TARGET}
+
+# {{{1 System
+
+snippet     sys
+abbr        system execute command
+options     head
+    sys::[${1:#:command}
+    ${0:TARGET}
+
