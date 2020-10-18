@@ -1,0 +1,39 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+
+# Shell vi like
+set -o vi
+
+# Shell emacs like
+# set -o emacs
+
+# Alias
+alias sudo='sudo '
+alias startx='startx ~/.xinitrc'
+alias mkdirt='mkdir `date +%y%m%d`'
+alias lxterminalc='lxterminal --working-directory=`pwd`'
+alias tarc='tar zcvf'
+alias tarx='tar zxvf'
+alias vimn='vim -u NONE'
+alias mountwin='mount -o iocharset=utf8'
+
+# Function
+function tarxr () {
+    tar zxvf $1 --one-top-level=/
+}
+
+# history ignore space
+export HISTCONTROL=ignorespace
+
+# GHC
+# export GHCRTS='-M1G'
+
+# Ranger-cd
+# source ~/bash_automatic_cd.sh

@@ -1,0 +1,5 @@
+
+default partial
+xkb_compatibility "customl" {
+    interpret ISO_Group_Latch { action = LatchGroup(group=2); };
+};

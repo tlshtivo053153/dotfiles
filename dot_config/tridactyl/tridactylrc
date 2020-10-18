@@ -1,0 +1,68 @@
+
+"
+" set
+"
+
+set newtabfocus page
+set allowautofocus false
+set editorcmd terminator -u -e "nvim %f '+normal!%lGzv%c|'"
+set smoothscroll true
+
+"
+" bind
+"
+
+bind j scrollline 5
+bind k scrollline -5
+bind d scrollline 20
+bind u scrollline -20
+bind s scrollline 5
+bind w scrollline -5
+bind e scrollline -20
+bind x tabclose
+bind X undo
+
+bind / fillcmdline find
+bind ? fillcmdline find -?
+bind n findnext 1
+bind N findnext -1
+bind ,<Space> nohlsearch
+
+bind b fillcmdline bmarks
+
+bind --mode=hint <C-[> hint.reset
+
+bind i mode ignore
+bind --mode=ignore <C-[> mode normal
+bind --mode=ignore <Escape> mode normal
+
+bind --mode=ex <C-[> ex.hide_and_clear
+
+bind --mode=ex <C-p> ex.prev_completion
+bind --mode=ex <C-n> ex.next_completion
+
+"
+" unbind
+"
+
+unbind www.nicovideo.jp --mode=ignore <Left>
+unbind www.nicovideo.jp --mode=ignore <Right>
+unbind www.nicovideo.jp --mode=ignore <Up>
+unbind www.nicovideo.jp --mode=ignore <Down>
+unbind www.nicovideo.jp --mode=ignore <Space>
+unbind www.nicovideo.jp --mode=ignore k
+unbind www.nicovideo.jp --mode=ignore f
+
+"
+" quick mark
+"
+
+unbind o --mode=normal
+quickmark d https://duckduckgo.com/
+quickmark g https://www.google.com
+quickmark a https://wiki.archlinuxjp.org/
+quickmark p http://pc.watch.impress.co.jp/
+quickmark k http://kakaku.com/pc/
+quickmark b http://www.cpubenchmark.net/cpu_list.php
+quickmark h file:///home/tlsh/.stack/snapshots/x86_64-linux-tinfo6/lts-12.26/8.4.4/doc/index.html
+

@@ -1,0 +1,5 @@
+
+keymap C-o PREV
+keymap C-i NEXT
+keymap 0 LINE_BEGIN
+keymap TAB NEXT_LINK

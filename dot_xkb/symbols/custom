@@ -1,0 +1,69 @@
+partial modifier_keys
+xkb_symbols "custom" {
+    key <CAPS> {
+        type[Group1] = "ONE_LEVEL",
+        //symbols[Group1] = [ Meta_L ],
+        symbols[Group1] = [ Meta_L ],
+        //actions[Group1] = [ NoAction() ]
+        actions[Group1] = [ SetMods(modifiers=Control+Alt,clearLocks) ]
+        //actions[Group1] = [ SetMods(modifiers=Shift,Alt,clearLocks) ]
+    };
+    //key <MUHE> {
+    //    type[Group1] = "ONE_LEVEL",
+    //    symbols[Group1] = [ Meta_L ],
+    //    actions[Group1] = [ NoAction() ]
+    //};
+    key <MUHE> {
+        type[Group1] = "ONE_LEVEL",
+        //symbols[Group1] = [ ISO_Level3_Shift ],
+        symbols[Group1] = [ NoSymbol ],
+        actions[Group1] = [ SetMods(modifiers=Mod5,clearLocks) ]
+    };
+    key <HENK> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ Hyper_L ],
+        actions[Group1] = [ NoAction() ]
+    };
+    key <HKTG> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ Hyper_R ],
+        actions[Group1] = [ NoAction() ]
+    };
+    key <AE13> {
+        [ bar, backslash ]
+    };
+    //key <FK13> {
+    //    type[Group1] = "ONE_LEVEL",
+    //    symbols[Group1] = [ ISO_Group_Latch ],
+    //    //actions[Group1] = [ SetMods(modifiers=Mod3,clearLocks) ]
+    //};
+    key <FK13> {
+        type[Group1] = "FOUR_LEVEL",
+        symbols[Group1] = [ NoSymbol, Meta_L, Meta_R, Meta_L],
+        actions[Group1] = [ SetMods(modifiers=Mod5,clearLocks) ]
+    };
+    key <AC01> {
+        type[Group1] = "FOUR_LEVEL",
+        symbols[Group1] = [ a, A, b, B]
+    };
+    key <LWIN> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ Control_L ],
+        actions[Group1] = [ setMods(modifiers=Control,clearLocks) ]
+    };
+    key <LCTL> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ Alt_L ],
+        actions[Group1] = [ setMods(modifiers=Alt,clearLocks) ]
+    };
+    key <LALT> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ Super_L ],
+        actions[Group1] = [ setMods(modifiers=Mod4,clearLocks) ]
+    };
+
+    //modifier_map Mod1{ <CAPS> };
+    //modifier_map Control { <CAPS> };
+    //modifier_map Shift   { <CAPS> };
+};
+

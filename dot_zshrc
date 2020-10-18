@@ -1,0 +1,308 @@
+# prompt
+autoload -U promptinit
+promptinit
+# This will set the default prompt to the walters theme
+prompt walters
+
+# completion
+autoload -U compinit
+compinit
+zstyle ':completion:*' menu select
+
+# complete alias
+setopt completealiases
+
+# History
+HISTFILE="$HOME/.zhistory"
+SAVEHIST=100000
+HISTSIZE=10000
+
+# keybind vi mode
+bindkey -v
+# move
+bindkey '' up-line-or-history
+bindkey '' down-line-or-history
+bindkey '' vi-forward-char
+bindkey '' vi-backward-char
+# self-insert
+bindkey -M viins '^J' self-insert
+
+# history ignore space
+setopt hist_ignore_space
+
+# history time stamp
+setopt extended_history
+
+# glob
+setopt extended_glob
+
+# Alias
+alias sudo='sudo '
+alias startx='startx ~/.xinitrc'
+alias mkdirt='mkdir `date +%y%m%d`'
+alias lxterminalc='lxterminal --working-directory=`pwd`'
+alias tarc='tar zcvf'
+alias tarx='tar zxvf'
+alias vimn='vim -u NONE'
+alias mountwin='mount -o iocharset=utf8'
+alias hawk='stack --silent exec hawk --'
+alias hawkd='stack --silent exec hawkd --'
+alias udevilusb="udevil mount /dev/sdb1 /media/usb"
+alias udevilhdd="udevil mount /dev/sdb1 /media/hdd"
+alias crlf2lf="perl -pe 's/\r\n/\n/'"
+alias lf2crlf="perl -pe 's/\n/\r\n/'"
+alias hoogle-xmonad="hoogle search --database=$HOME/.hoogle/xmonad.hoo"
+alias hoogle-xmonad-generate="hoogle generate --database=$HOME/.hoogle/xmonad.hoo xmonad xmonad-contrib"
+alias a2xetex2pdf='a2x -L -a "lang=ja" --dblatex-opts="-b xetex -P latex.output.revhistory=0 -P xetex.font=\"\\setmainfont{IPAPGothic}&#10; \\setsansfont{IPAPMincho}&#10; \\setmonofont{IPAGothic}&#10;\"" -f pdf'
+alias stack='LANG=C stack'
+alias picom-invert='picom --config ~/.config/picom/invert.conf -b'
+alias xmodmap-modkeys="xmodmap | sed -n -e 's/[^(]*(\(0x[0-9a-f]*\)),\?/\1 /g;/^0x/p' | tr '\n' ' ' | sed -e 's/ \+/,/g;s/,$/\n/'"
+alias pulseaudio_dell-arch="export PULSE_SERVER=dell-arch.local; pulseaudio -k"
+alias taskcdda="task project:cdda"
+alias borgcdda="BORG_REPO=$HOME/.cdda_backup/repository borg"
+
+# Global alias
+alias -g L='| less'
+alias -g G='| grep'
+alias -g S='| sort'
+alias -g HL='history 1 | less'
+alias -g HA='| stack --silent exec hawk --'
+alias -g HC='| hawkc'
+alias -g A='| hsalign'
+
+# GHC
+# export GHCRTS='-M1G'
+
+export fi54="fi5-g4-arch.local"
+export fi56="fi5-g6-arch.local"
+
+alias sshfsfi56="sshfs $fi56:/ ~/sshfs/fi56"
+alias sshfsfi54="sshfs $fi54:/ ~/sshfs/fi54"
+alias fi56getxmonad="cp -f ~/sshfs/fi56/home/tlsh/.local/bin/my-xmonad-exe ~/.local/bin/"
+
+alias mounthdd="udevil mount /dev/disk/by-uuid/EAEA8A3FEA8A0851 /media/hdd"
+
+# Ranger-cd
+source ~/zsh_automatic_cd.sh
+
+# # lxterminal (pwd)
+# function _lxterminal-pwd()
+# {
+#     /usr/bin/lxterminal --working-directory=`pwd`
+# }
+# zle -N _lxterminal-pwd
+# bindkey '^T' _lxterminal-pwd
+
+# postgresql
+export PSQL_EDITOR='vim +"set syntax=sql"'
+
+# library
+export LD_LIBRARY_PATH=/usr/lib:/usr/lib32:/home/tlsh/.local/lib/
+
+# text editor
+export EDITOR='nvim'
+# cataclysm dda
+#local-cdda-tiles()
+#{
+#    cd ~/.local/game/cataclysmdda-0.C/
+#    ./cataclysm-tiles
+#    cd -
+#}
+
+# fzf
+#export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden --glob "!.git" --glob "!.wine" --glob "!.cache" --glob "!.stack" --glob "!.stack-work" --glob "!.mozilla" --glob "!sshfs"'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_DEFAULT_OPTS='--bind=ctrl-u:page-up,ctrl-d:page-down'
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+# borg
+export BORG_REPO='/var/tmp/borg-tlsh'
+
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" --exclude ".stack" --exclude ".cache" --exclude ".wine" --exclude ".stack-work" --exclude ".mozilla" --exclude "sshfs" . "$1"
+}
+
+# fd - cd to selected directory
+function fcd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+# fcda - including hidden directories
+fcda() {
+  local dir
+  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+}
+
+# fdr - cd to selected parent directory
+fcdr() {
+  local declare dirs=()
+  get_parent_dirs() {
+    if [[ -d "${1}" ]]; then dirs+=("$1"); else return; fi
+    if [[ "${1}" == '/' ]]; then
+      for _dir in "${dirs[@]}"; do echo $_dir; done
+    else
+      get_parent_dirs $(dirname "$1")
+    fi
+  }
+  local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf-tmux --tac)
+  cd "$DIR"
+}
+
+# cdf - cd into the directory of the selected file
+cdf() {
+   local file
+   local dir
+   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+}
+
+# git worktree cd
+function cdworktree() {
+    # カレントディレクトリがGitリポジトリ上かどうか
+    git rev-parse &>/dev/null
+    if [ $? -ne 0 ]; then
+        echo fatal: Not a git repository.
+        return
+    fi
+
+    local selectedWorkTreeDir=`git worktree list | fzf | awk '{print $1}'`
+
+    if [ "$selectedWorkTreeDir" = "" ]; then
+        # Ctrl-C.
+        return
+    fi
+
+    cd ${selectedWorkTreeDir}
+}
+
+# pass for copyq
+function pass {
+    copyq disable
+    /usr/bin/pass "$@"
+    copyq enable
+}
+
+# pass fzf
+function passf() {
+    local selectpass
+    selectpass=$(find ~/.password-store/ -name '*.gpg' -printf '%P\n' | fzf) && pass "$@" ${selectpass%.gpg}
+}
+
+# cd haskell project
+function cdhs() {
+#   local file
+#   local dir
+#   file=$(fzf +m -q "'package.yaml") && dir=$(dirname "$file") && cd "$dir"
+    cdf "'package.yaml "
+}
+
+# cd git repository
+function cdgit() {
+    local gitdir
+    gitdir=$(fd --type d --hidden --follow --glob ".git" --exclude ".stack" --exclude ".cache" --exclude ".wine" --exclude ".stack-work" --exclude ".mozilla" --exclude "sshfs" | fzf) &&
+    cd ${gitdir%/.git}
+}
+
+#https://qiita.com/mochidamochiko/items/cd4dd6ca5859328b8daa
+to_upper() {
+    # パラメータの受け取り
+    if [ -p /dev/stdin ]; then
+        if [ "`echo $@`" == "" ]; then 
+            __str=`cat -`
+        else
+            __str=$@
+        fi
+    else
+        __str=$@
+    fi
+
+    # 処理
+    echo "${__str}" | tr '[a-z]' '[A-Z]'
+}
+
+# xargs with "space arg"
+function findnull() {
+    if [ -p /dev/stdin ]; then
+        if [ "`echo $@`" == "" ]; then 
+            __str=`cat -`
+        else
+            __str=$@
+        fi
+    else
+        __str=$@
+    fi
+    find ${__str} -print0
+}
+function xargsspace() {
+    xargs -I {} find {} -print0 | xargs -0 "$@"
+}
+
+# nmcli_static_ip "192.168.0.100/24"
+function nmcli_static_ip()
+{
+    local ethernet_dev
+    ethernet_dev=`nmcli device G ethernet | sed "s/\([^ ]*\).*/\1/"`
+    nmcli device modify $ethernet_dev ipv4.addresses $@
+    nmcli device modify $ethernet_dev ipv4.method manual
+}
+
+# don't nest
+function ranger() {
+    if [ -z "$RANGER_LEVEL" ]; then
+        /usr/bin/ranger $@
+    else
+        exit
+    fi
+}
+[ -n "$RANGER_LEVEL" ] && PS1="$PS1"'(in ranger) '
+[ -n "$InChezmoi" ] && PS1="$PS1(inChezmoi) "
+
+function borg-export-last()
+{
+    BORG_ARCH="/var/tmp/borg-$USER"
+    BORG_LAST=`borg list $BORG_ARCH --last 1 --short`
+    borg export-tar $BORG_ARCH::$BORG_LAST $BORG_LAST.tar.gz
+}
+
+function borg-fi56()
+{
+    mkdir -p /tmp/borg-tar
+    cd /tmp/borg-tar
+    if ls *.tar.gz > /dev/null 2>&1
+    then
+        find -type f -name "*.tar.gz" | xargs rm
+    fi
+    borg-export-last
+    rsync -av ./*.tar.gz $fi56:/home/$USER/
+    rm ./*.tar.gz
+    cd -
+}
+
+function borg-clone-fi56()
+{
+    rsync -av /var/tmp/borg-$USER/ $fi56:/var/tmp/borg-$USER-clone/
+}
+
+function borg-extract-last-fi56()
+{
+    mkdir -p /tmp/borg-extract
+    cd /tmp/borg-extract
+    borg-export-last
+    tar -xvf *.tar.gz
+    rsync -av home/$USER/ $fi56:/home/$USER/
+    cd -
+}
+
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
+
+return 0
+

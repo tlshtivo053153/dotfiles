@@ -1,0 +1,9 @@
+[Unit]
+Description=fcitx clipboard tmpfs
+
+[Service]
+Type=oneshot
+ExecStart=/home/tlsh/.local/bin/fcitx_clipboard.sh
+
+[Install]
+WantedBy=default.target

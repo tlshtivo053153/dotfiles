@@ -1,0 +1,4 @@
+
+typeset -U path
+path=(~/.local/bin $path[@])
+if [ -e /home/tlsh/.nix-profile/etc/profile.d/nix.sh ]; then . /home/tlsh/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

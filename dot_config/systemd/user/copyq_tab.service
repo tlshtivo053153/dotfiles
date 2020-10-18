@@ -1,0 +1,9 @@
+[Unit]
+Description=copyq tab tmpfs
+
+[Service]
+Type=oneshot
+ExecStart=/home/tlsh/.local/bin/copyq_tab.sh
+
+[Install]
+WantedBy=default.target

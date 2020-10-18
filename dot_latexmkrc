@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+
+$latex='platex --shell-escape -kanji=utf8 -guess-input-enc -synctex=1 -interaction=nonstopmode %S';
+$latex_silent='platex -interaction=batchmode';
+$dvipdf='dvipdfmx  %S';
+$bibtex='pbibtex -kanji=utf8 %B';
+$max_repeat=5;

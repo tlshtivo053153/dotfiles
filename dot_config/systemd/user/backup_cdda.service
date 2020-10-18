@@ -1,0 +1,6 @@
+[Unit]
+Description=Cataclysm DDA backup
+ 
+[Service]
+Type=oneshot
+ExecStart=/home/tlsh/.cdda_backup/backup_cdda.py

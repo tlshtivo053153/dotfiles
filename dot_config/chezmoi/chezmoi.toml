@@ -1,0 +1,5 @@
+[cd]
+    command = 'chezmoicd.sh'
+[merge]
+    args = "-d"
+    command = 'nvim'

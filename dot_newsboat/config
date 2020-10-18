@@ -1,0 +1,5 @@
+browser "chromium %u"
+
+bind-key d down
+bind-key u up
+bind-key U show-urls
