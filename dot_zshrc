@@ -118,7 +118,7 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 # borg
-export BORG_REPO='/var/tmp/borg-tlsh'
+export BORG_REPO="/var/tmp/borg/$HOST/$USER"
 
 _fzf_compgen_path() {
   fd --hidden --follow --exclude ".git" . "$1"
@@ -268,9 +268,8 @@ function ranger() {
 
 function borg-export-last()
 {
-    BORG_ARCH="/var/tmp/borg-$USER"
     BORG_LAST=`borg list $BORG_ARCH --last 1 --short`
-    borg export-tar $BORG_ARCH::$BORG_LAST $BORG_LAST.tar.gz
+    borg export-tar ::$BORG_LAST $BORG_LAST.tar.gz
 }
 
 function borg-fi56()
@@ -289,7 +288,7 @@ function borg-fi56()
 
 function borg-clone-fi56()
 {
-    rsync -av /var/tmp/borg-$USER/ $fi56:/var/tmp/borg-$USER-clone/
+    rsync -av /var/tmp/borg/ $fi56:/var/tmp/borg/
 }
 
 function borg-extract-last-fi56()
