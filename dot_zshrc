@@ -58,7 +58,7 @@ alias stack='LANG=C stack'
 alias picom-invert='picom --config ~/.config/picom/invert.conf -b'
 alias xmodmap-modkeys="xmodmap | sed -n -e 's/[^(]*(\(0x[0-9a-f]*\)),\?/\1 /g;/^0x/p' | tr '\n' ' ' | sed -e 's/ \+/,/g;s/,$/\n/'"
 alias pulseaudio_dell-arch="export PULSE_SERVER=dell-arch.local; pulseaudio -k"
-alias taskcdda="task project:cdda"
+alias taskcdda="task project:CDDA"
 alias borgcdda="BORG_REPO=$HOME/.cdda_backup/repository borg"
 
 # Global alias
