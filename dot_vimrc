@@ -404,7 +404,8 @@ set shiftwidth=4
 "highlight comment ctermfg=LightBlue
 
 "multibyte char
-set ambiwidth=double
+"set ambiwidth=double
+set ambiwidth=single
 
 "Align Multibyte char
 let g:Align_xstrlen=3
