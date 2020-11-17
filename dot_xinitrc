@@ -58,6 +58,7 @@ case $session in
                         nitrogen --restore &
                         fcitx &
                         copyq &
+                        conky &
                         export GTK_THEME=Adwaita:dark
                         export _JAVA_AWT_WM_NONREPARENTING=1
                         export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
