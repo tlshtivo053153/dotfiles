@@ -83,7 +83,24 @@ alias fi56getxmonad="cp -f ~/sshfs/fi56/home/tlsh/.local/bin/my-xmonad-exe ~/.lo
 alias mounthdd="udevil mount /dev/disk/by-uuid/EAEA8A3FEA8A0851 /media/hdd"
 
 # Ranger-cd
-source ~/zsh_automatic_cd.sh
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+
+function _run_ranger-cd() {
+    BUFFER='ranger-cd'
+    zle accept-line
+}
+
+# This binds Ctrl-O to ranger-cd:
+zle -N _run_ranger-cd
+bindkey '' _run_ranger-cd
 
 # # lxterminal (pwd)
 # function _lxterminal-pwd()
