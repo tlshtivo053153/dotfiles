@@ -75,9 +75,11 @@ alias -g A='| hsalign'
 
 export fi54="fi5-g4-arch.local"
 export fi56="fi5-g6-arch.local"
+export hpmanjaro="hp-manjaro.local"
 
 alias sshfsfi56="sshfs $fi56:/ ~/sshfs/fi56"
 alias sshfsfi54="sshfs $fi54:/ ~/sshfs/fi54"
+alias sshfshpmanjaro="sshfs $hpmanjaro:/ ~/sshfs/hpmanjaro"
 alias fi56getxmonad="cp -f ~/sshfs/fi56/home/tlsh/.local/bin/my-xmonad-exe ~/.local/bin/"
 
 alias mounthdd="udevil mount /dev/disk/by-uuid/EAEA8A3FEA8A0851 /media/hdd"
