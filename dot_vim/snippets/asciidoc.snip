@@ -2,6 +2,19 @@
 # vim: foldcolumn=3
 # vim: foldlevelstart=0
 
+# {{{1 Template
+snippet     templateReport
+abbr        Template for report
+options     head
+    :sectnums:
+    :lang: ja
+    :doctype: article
+    :pdf-theme: theme.yml
+    :scripts: cjk
+    :source-highlighter: coderay
+    :toc:
+    = 
+
 # {{{1 Headers
 snippet     section0
 abbr        Section0
@@ -256,4 +269,10 @@ abbr        system execute command
 options     head
     sys::[${1:#:command}
     ${0:TARGET}
+
+# {{{1 Footnote
+snippet footnote
+abbr footnote
+options word
+    footnote:[${1:footnotetext}]${0}
 

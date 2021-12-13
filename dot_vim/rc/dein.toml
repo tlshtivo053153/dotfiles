@@ -85,3 +85,6 @@ repo = 'w0ng/vim-hybrid'
 [[plugins]]
 repo = 'neovimhaskell/haskell-vim'
 
+[[plugins]]
+repo = 'morhetz/gruvbox'
+

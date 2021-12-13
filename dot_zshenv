@@ -1,5 +1,5 @@
 
 typeset -U path
-path=(~/.local/bin $path[@])
+path=(~/.local/bin ~/.local/share/gem/ruby/3.0.0/bin $path[@])
 if [ -e /home/tlsh/.nix-profile/etc/profile.d/nix.sh ]; then . /home/tlsh/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 source ~/.zsh/_restic
