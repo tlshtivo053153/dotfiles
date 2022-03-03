@@ -17,3 +17,11 @@ on_ft = 'tex'
 [[plugins]]
 repo = 'ujihisa/ref-hoogle'
 on_ft = 'haskell'
+
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+on_ft = 'plantuml'
+
+[[plugins]]
+repo = 'weirongxu/plantuml-previewer.vim'
+on_ft = 'plantuml'
