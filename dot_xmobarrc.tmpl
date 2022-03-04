@@ -53,7 +53,14 @@ Config {
                              ] 10
 
         -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%|<total2>%|<total3>%"
+        , Run MultiCpu       [ 
+{{ if eq .chezmoi.hostname "arch" }}
+                               "--template" , "Cpu: <total0>%|<total1>%|<total2>%|<total3>%"
+{{ else if eq .chezmoi.hostname "hp-manjaro" }}
+                               "--template" , "Cpu: <total0>%|<total1>%|<total2>%|<total3>%|<total4>%|<total5>%|<total6>%|<total7>%"
+{{ else if eq .chezmoi.hostname "fi56manjaro" }}
+                               "--template" , "Cpu: <total0>%|<total1>%|<total2>%|<total3>%"
+{{ end }}
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
                              , "--low"      , "darkgreen"
@@ -62,7 +69,14 @@ Config {
                              ] 10
 
         -- cpu core temperature monitor
-        , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
+        , Run CoreTemp       [
+{{ if eq .chezmoi.hostname "arch" }}
+                               "--template" , "Temp: <core0>°C|<core1>°C"
+{{ else if eq .chezmoi.hostname "hp-manjaro" }}
+                               "--template" , "Temp: <core0>°C|<core1>°C|<core2>°C|<core3>°C"
+{{ else if eq .chezmoi.hostname "fi56manjaro" }}
+                               "--template" , "Temp: <core0>°C|<core1>°C"
+{{ end }}
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
                              , "--low"      , "darkgreen"

@@ -1,0 +1,6 @@
+[Unit]
+Description=Daily Backup With Restic
+ 
+[Service]
+Type=oneshot
+ExecStart=/home/tlsh/.restic-backup/backup_local.sh

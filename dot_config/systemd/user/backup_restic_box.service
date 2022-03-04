@@ -1,0 +1,12 @@
+[Unit]
+Description=restic Backup
+ 
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/bin/true
+ExecStop=/home/tlsh/.backup/backup_box.sh
+
+[Install]
+WantedBy=default.target
+
