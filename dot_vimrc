@@ -392,6 +392,7 @@ syntax enable
     set termguicolors
   endif
 autocmd ColorScheme * highlight Pmenu ctermbg=black guibg=black
+autocmd ColorScheme * highlight CocMenuSel ctermbg=14 gui=italic guibg=#1a1a1a
 "autocmd ColorScheme * highlight CocErrorSign ctermfg=6 guifg=#00ffd7 guibg=#b2b2b2
 autocmd ColorScheme * highlight CocErrorSign ctermfg=6 guifg=#cf6a4c guibg=#1c1c1c
 

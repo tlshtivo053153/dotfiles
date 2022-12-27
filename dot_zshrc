@@ -74,7 +74,7 @@ alias -g A='| hsalign'
 # export GHCRTS='-M1G'
 
 export fi54="fi5-g4-arch.local"
-export fi56="fi5-g6-arch.local"
+export fi56="fi56manjaro.local"
 export hpmanjaro="hp-manjaro.local"
 
 alias sshfsfi56="sshfs $fi56:/ ~/sshfs/fi56"
@@ -132,7 +132,7 @@ export EDITOR='nvim'
 #export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden --glob "!.git" --glob "!.wine" --glob "!.cache" --glob "!.stack" --glob "!.stack-work" --glob "!.mozilla" --glob "!sshfs"'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_DEFAULT_OPTS='--bind=ctrl-u:page-up,ctrl-d:page-down'
+export FZF_DEFAULT_OPTS='--bind=ctrl-u:page-up,ctrl-d:page-down,ctrl-o:toggle-all'
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
