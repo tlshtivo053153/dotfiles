@@ -464,6 +464,24 @@ options     head
         ${0:TARGET}
     \end{column}
 
+snippet     frame-itemize
+abbr        frame-itemize環境(beamer)
+options     head
+    \begin{frame}{itemize}
+      \begin{itemize}
+        \item {\color<3->{gray}
+        }
+        \item {\color<2,4->{gray}
+        }
+        \item {\color<2,3,5->{gray}
+        }
+        \item {\color<2,3,4,6->{gray}
+        }
+        \item {\color<2,3,4,5,7->{gray}
+        }
+      \end{itemize}
+    \end{frame}
+
 # {{{1 generic
 snippet     seq
 abbr        sequential number
