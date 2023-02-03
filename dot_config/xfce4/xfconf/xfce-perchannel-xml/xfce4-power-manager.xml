@@ -21,5 +21,6 @@
     <property name="dpms-on-battery-off" type="uint" value="32"/>
     <property name="power-button-action" type="uint" value="1"/>
     <property name="dpms-enabled" type="bool" value="true"/>
+    <property name="show-tray-icon" type="bool" value="false"/>
   </property>
 </channel>

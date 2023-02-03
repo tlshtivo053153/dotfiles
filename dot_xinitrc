@@ -53,6 +53,10 @@ case $session in
     lxde              ) export GTK_THEME=Adwaita:dark
                         copyq &
                         exec startlxde;;
+    xfce4             ) export GTK_THEME=Adwaita:dark
+                        picom --config ~/.config/picom/invert.conf -b
+                        copyq &
+                        exec startxfce4;;
     xmonad            ) xfce4-power-manager &
                         picom --config ~/.config/picom/invert.conf -b
                         nitrogen --restore &

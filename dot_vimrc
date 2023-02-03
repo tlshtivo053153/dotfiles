@@ -600,3 +600,8 @@ augroup haskell_plug
   autocmd FileType haskell :source ~/.vim/vimrc/haskell.vim
 augroup END
 
+augroup json_plug
+  autocmd!
+  autocmd FileType json :source ~/.vim/vimrc/json.vim
+augroup END
+
