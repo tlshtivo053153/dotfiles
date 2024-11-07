@@ -116,7 +116,7 @@ bindkey '' _run_ranger-cd
 export PSQL_EDITOR='vim +"set syntax=sql"'
 
 # library
-export LD_LIBRARY_PATH=/usr/lib:/usr/lib32:/home/tlsh/.local/lib/
+#export LD_LIBRARY_PATH=/usr/lib:/usr/lib32:/home/tlsh/.local/lib/
 
 # text editor
 export EDITOR='nvim'

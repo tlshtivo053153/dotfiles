@@ -61,9 +61,17 @@ xkb_symbols "custom" {
         symbols[Group1] = [ Super_L ],
         actions[Group1] = [ setMods(modifiers=Mod4,clearLocks) ]
     };
-
     //modifier_map Mod1{ <CAPS> };
     //modifier_map Control { <CAPS> };
     //modifier_map Shift   { <CAPS> };
+    key <PGUP> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ NoSymbol ],
+        actions[Group1] = [ NoAction() ]
+    };
+    key <PGDN> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ NoSymbol ],
+        actions[Group1] = [ NoAction() ]
+    };
 };
-

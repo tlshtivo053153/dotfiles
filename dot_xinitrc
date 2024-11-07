@@ -54,13 +54,15 @@ case $session in
                         copyq &
                         exec startlxde;;
     xfce4             ) export GTK_THEME=Adwaita:dark
-                        picom --config ~/.config/picom/invert.conf -b
+                        #picom --config ~/.config/picom/invert.conf -b
+                        picom -b
                         copyq &
                         exec startxfce4;;
     xmonad            ) xfce4-power-manager &
-                        picom --config ~/.config/picom/invert.conf -b
+                        #picom --config ~/.config/picom/invert.conf -b
+                        picom -b
                         nitrogen --restore &
-                        fcitx &
+                        fcitx5 &
                         copyq &
                         (sleep 3; conky) &
                         export GTK_THEME=Adwaita:dark
